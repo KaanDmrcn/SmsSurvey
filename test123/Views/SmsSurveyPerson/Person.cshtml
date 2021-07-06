@@ -1,0 +1,81 @@
+﻿@model IEnumerable<test123.Models.SmsSurveyPerson>
+
+@{
+    ViewData["Title"] = "Person";
+}
+
+<h1>Person</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SmsResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SmsSurveyId)
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmsResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmsSurveyId)
+            </td>
+            <td>
+                <a href="/SmsSurveyPerson/Delete/@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+                <a href="/SmsSurveyPerson/GetSmsSurveyPerson/@item.Id" class="btn btn-warning">Update</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tr>
+        <td>
+            <a href="/SmsSurveyPerson/NewSmsSurveyPerson/" class="btn btn-success">New SmsSurveyPerson</a>
+        </td>
+    </tr>
+</table>

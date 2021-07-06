@@ -1,0 +1,50 @@
+﻿@model IEnumerable<test123.Models.SmsSurvey>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<h3>@ViewBag.Survey</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Answer
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                PhoneNumber
+            </th>
+            </tr>
+        </thead>
+
+<tbody>
+        @foreach (var item in ViewBag.Peoples as List<test123.Models.SmsSurveyPerson>)
+        {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Answer
+            </td>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<test123.Models.SmsSurveyAnswer>
+
+@{
+    ViewData["Title"] = "Answer";
+}
+
+<h1>Answer</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.SmsSurvey)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SmsSurveyId)
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.SmsSurvey.InsertedBy)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.SmsSurveyId)
+            </td>
+            <td>
+                <a href="/SmsSurveyAnswer/GetSmsSurveyAnswer/@item.Id" class="btn btn-warning">Update</a>
+            </td>
+            <td>
+                <a href="/SmsSurveyAnswer/Delete/@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tr>
+        <td>
+            <a href="/SmsSurveyAnswer/NewSmsSurveyAnswer/" class="btn btn-success">New SmsSurveyAnswer</a>
+        </td>
+    </tr>
+</table>

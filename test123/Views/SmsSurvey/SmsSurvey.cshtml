@@ -1,0 +1,106 @@
+﻿@model IEnumerable<test123.Models.SmsSurvey>
+
+@{
+    ViewData["Title"] = "SmsSurvey";
+}
+
+
+<table class="table">
+    <thead>        
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsertedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsertedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+            <th>
+                Change Statu
+            </th>
+            <th>
+                Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a href="/SmsSurvey/Delete/@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+                <a href="/SmsSurvey/GetSmsSurvey/@item.Id" class="btn btn-warning">Update</a>
+            </td>
+            <td>
+                <a href="/SmsSurvey/Publish/@item.Id" class="btn btn-light">Publish</a>
+                <a href="/SmsSurvey/TakeItBack/@item.Id" class="btn btn-light">Plan</a>
+            </td>
+            <td>
+                <a href="/SmsSurvey/Details/@item.Id" class="btn btn-warning">Details</a>
+            </td>      
+        </tr>
+
+        }
+    </tbody>
+    <tr>
+        <td>
+            <a href="/SmsSurvey/NewSmsSurvey/" class="btn btn-success">New SmsSurvey</a>
+        </td>
+    </tr>
+</table>

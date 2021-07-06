@@ -1,0 +1,22 @@
+﻿@model test123.Models.SmsSurveyAnswer
+@{
+}
+
+@using (Html.BeginForm("Update", "SmsSurveyAnswer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Answer)
+        @Html.TextBoxFor(m => m.Answer)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SmsSurveyId)
+        @Html.TextBoxFor(m => m.SmsSurveyId)
+    </div>
+    <div>
+        <button class="btn btn-warning"> Update</button>
+    </div>
+}
