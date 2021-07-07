@@ -2,38 +2,75 @@
 @{
     ViewBag.Title = "New SmsSurvey";
 }
+<thead>
+    <tr>
+        <td>
+            <h3>ANKET BİLGİLERİ</h3>
+            <form class=" form-group" method="post">
 
-<form class=" form-group" method="post">
+                <div>
+                    <label>Id</label>
+                    <input type="text" name="Id" />
+                </div>
+                <div>
+                    <label>StartDate</label>
+                    <input type="datetime" name="StartDate" />
+                </div>
+                <div>
+                    <label>Duration</label>
+                    <input type="number" name="Duration" />
+                </div>
+                <div>
+                    <label>Question</label>
+                    <input type="text" name="Question" />
+                </div>
+                <div>
+                    <label>InsertedBy</label>
+                    <input type="text" name="InsertedBy" />
+                </div>
+                <div>
+                    <label>InsertedDate</label>
+                    <input type="datetime" name="InsertedDate" />
+                </div>
+                <div>
+                    <input type="hidden" name="Status" value="Planned" />
+                </div>
+   
+                <h3>SEÇENEKLER</h3>
+                <div>
+                    <label>Id</label>
+                    <input type="text" name="p2.Id" />
 
-    <div>
-        <label>Id</label>
-        <input type="text" name="Id" />
-    </div>
-    <div>
-        <label>StartDate</label>
-        <input type="datetime" name="StartDate" />
-    </div>
-    <div>
-        <label>Duration</label>
-        <input type="number" name="Duration" />
-    </div>
-    <div>
-        <label>Question</label>
-        <input type="text" name="Question" />
-    </div>
-    <div>
-        <label>InsertedBy</label>
-        <input type="text" name="InsertedBy" />
-    </div>
-    <div>
-        <label>InsertedDate</label>
-        <input type="datetime" name="InsertedDate" />
-    </div>
-    <div>
-        <input type="hidden" name="Status" value="Planned" />
-    </div>
-    <div style="margin-top:15px">
-        <button class="btn btn-info">Add</button>
-    </div>
+                    <input type="text" name="p3.Id" />
 
-</form>
+                    <input type="text" name="p4.Id" />
+
+                    <input type="text" name="p5.Id" />
+                </div>
+                <div>
+                    <label>A-)</label>
+                    <input type="text" name="p2.Answer" />
+                    <label>B-)</label>
+                    <input type="text" name="p3.Answer" />
+                    <label>C-)</label>
+                    <input type="text" name="p4.Answer" />
+                    <label>D-)</label>
+                    <input type="text" name="p5.Answer" />
+                </div>
+                <div>
+                    <label>SmsSurveyId</label>
+                    <input type="number" name="p2.SmsSurveyId" />
+
+                    <input type="number" name="p3.SmsSurveyId" />
+
+                    <input type="number" name="p4.SmsSurveyId" />
+
+                    <input type="number" name="p5.SmsSurveyId" />
+                </div>            
+                <div style="margin-top:15px">
+                    <button class="btn btn-info">Add</button>
+                </div>
+            </form>
+        </td>
+    </tr>
+

@@ -37,11 +37,18 @@ namespace test123.Controllers
 
 
         [HttpPost]
-        public ActionResult NewSmsSurvey(SmsSurvey p1)
+        public ActionResult NewSmsSurvey(SmsSurvey p1,SmsSurveyAnswer p2, SmsSurveyAnswer p3, SmsSurveyAnswer p4, SmsSurveyAnswer p5)
         {
-            _db.SmsSurveys.Add(p1);
+            _db.SmsSurveys.Add(p1);           
+            _db.SaveChanges();
+            ViewBag.SmsSurveyId = p1.Id;
+            _db.SmsSurveyAnswers.Add(p2);
+            _db.SmsSurveyAnswers.Add(p3);
+            _db.SmsSurveyAnswers.Add(p4);
+            _db.SmsSurveyAnswers.Add(p5);
             _db.SaveChanges();
             return RedirectToAction("SmsSurvey");
+            //return RedirectToAction("Secmeli","SmsSurveyAnswer");
         }
 
         public ActionResult Delete(string Id)
@@ -93,6 +100,5 @@ namespace test123.Controllers
             ViewBag.Survey = survey.Question.ToString();
             return View();
         }
-
     }
 }
