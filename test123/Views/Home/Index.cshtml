@@ -2,7 +2,104 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div id="app">
+    <div class="text-center">
+            <h1 class="display-4">{{message}}</h1>
+        </div>
+        <comp1></comp1>
+        <div class="text-center">
+            <h1 class="display-4">{{message}}</h1>
+        </div>
+        <comp2></comp2>
+
 </div>
+<template id="templateId">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">StartDate</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Question</th>
+                <th scope="col">InsertedBy</th>
+                <th scope="col">InsertedDate</th>
+                <th scope="col">UpdatedBy</th>
+                <th scope="col">UpdatedDate</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(anket,index) in ankets">
+                <td>{{anket.id}}</td>
+                <td>{{anket.startDate}}</td>
+                <td>{{anket.duration}}</td>
+                <td>{{anket.question}}</td>
+                <td>{{anket.insertedBy}}</td>
+                <td>{{anket.insertedDate}}</td>
+                <td>{{anket.updatedBy}}</td>
+                <td>{{anket.updatedDate}}</td>
+                <td>{{anket.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+<template id="templateId2">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">SmsSurveyId</th>
+                <th scope="col">Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(answer,index) in answers" v_if="()">
+                <td>{{answer.id}}</td>
+                <td>{{answer.smsSurveyId}}</td>
+                <td>{{answer.answer}}</td>
+            </tr>
+        </tbody>
+    </table>
+</template>
+
+
+@section scripts
+{
+    <script>
+        Vue.component("comp1", {
+            data() {
+                return {
+                    ankets: [],                    
+                }
+            },
+            created() {
+                axios.get("https://localhost:44303/api/SmsSurveys")
+                    .then(res => this.ankets = res.data)
+                    .catch(err => console.log(err))                    
+            },
+            template: '#templateId'
+        }),
+        Vue.component("comp2", {
+                data() {
+                    return {                        
+                        answers: [],
+                    }
+                },
+                created() {                    
+                    axios.get("https://localhost:44303/api/SmsSurveyAnswers")
+                            .then(res => this.answers = res.data)
+                            .catch(err => console.log(err))
+                },
+                template: '#templateId2'
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "SMS"
+            },          
+            
+
+        })
+    </script>
+}

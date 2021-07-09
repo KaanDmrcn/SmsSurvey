@@ -92,7 +92,7 @@ namespace test123.Controllers
             _db.SaveChanges();
             return RedirectToAction("SmsSurvey");
         }
-        public ActionResult Details([FromRoute] string id)
+        public ActionResult Details([FromRoute] int id)
         {
             var survey = _db.SmsSurveys.Find(id);
             var people = _db.SmsSurveyPeople.Where(ww => ww.SmsSurveyId == id).ToList();

@@ -33,12 +33,11 @@ namespace test123.Controllers
 
 
         [HttpPost]
-        public ActionResult NewSmsSurveyAnswer(SmsSurveyAnswer p1, SmsSurveyAnswer p2)
+        public ActionResult NewSmsSurveyAnswer(SmsSurveyAnswer p1)
         {
 
             //p1.SmsSurveyId = Id;
             _db.SmsSurveyAnswers.Add(p1);          
-            _db.SmsSurveyAnswers.Add(p2);
             _db.SaveChanges();
             return RedirectToAction("Answer");
         }

@@ -8,7 +8,7 @@ namespace test123.Models
     public partial class SmsSurveyPerson
     {
         public string Id { get; set; }
-        public string SmsSurveyId { get; set; }
+        public int SmsSurveyId { get; set; }
         public string EmployeeId { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }

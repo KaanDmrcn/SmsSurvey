@@ -13,7 +13,7 @@ namespace test123.Models
             SmsSurveyPeople = new HashSet<SmsSurveyPerson>();
         }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public string Question { get; set; }
