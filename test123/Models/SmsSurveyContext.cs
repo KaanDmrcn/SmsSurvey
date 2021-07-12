@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using test123.Model;
 
 #nullable disable
 
@@ -112,5 +113,7 @@ namespace test123.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<test123.Model.SmsSurveyModel> SmsSurveyModel { get; set; }
     }
 }
