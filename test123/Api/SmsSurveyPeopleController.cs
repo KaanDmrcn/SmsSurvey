@@ -118,17 +118,24 @@ namespace test123.Api
             return _context.SmsSurveyPeople.Any(e => e.Id == id);
         }
 
-        [HttpGet("{GetLink}/{id}")]
-        public async Task<ActionResult<SmsSurveyPerson>> GetLink(string id)
-        {
-            var smsSurveyPerson = await _context.SmsSurveyPeople.FindAsync(id);
+        //[HttpGet("{GetLink}/{id}")]
+        //public async Task<ActionResult<SmsSurveyPerson>> GetLink(string id)
+        //{
+        //    var smsSurveyPerson = await _context.SmsSurveyPeople.FindAsync(id);
 
-            if (smsSurveyPerson == null)
-            {
-                return NotFound();
-            }
-            string _link = "www.kaan.com/" + smsSurveyPerson.Id;
-            return Ok(_link);            
+        //    if (smsSurveyPerson == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    string _link = "www.kaan.com/" + smsSurveyPerson.Id;
+        //    return Ok(_link);            
+        //}
+        // GET: api/SmsSurveyPeople/GetId/5
+        [HttpGet("{GetId}/{id}")]
+        public IActionResult GetSmsSurveyId(int id)
+        {            
+            var people = _context.SmsSurveyPeople.Where(ww => ww.SmsSurveyId == id).ToList();
+            return Ok(people);
         }
     }
 }

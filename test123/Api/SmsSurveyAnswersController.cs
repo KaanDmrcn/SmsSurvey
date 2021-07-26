@@ -103,5 +103,12 @@ namespace test123.Api
         {
             return _context.SmsSurveyAnswers.Any(e => e.Id == id);
         }
+        // GET: api/SmsSurveyAnswers/GetId/5
+        [HttpGet("{GetId}/{id}")]
+        public IActionResult GetSmsSurveyId(int id)
+        {
+            var people = _context.SmsSurveyAnswers.Where(ww => ww.SmsSurveyId == id).ToList();
+            return Ok(people);
+        }
     }
 }
