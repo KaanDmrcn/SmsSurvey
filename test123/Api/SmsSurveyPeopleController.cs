@@ -77,6 +77,8 @@ namespace test123.Api
         [HttpPost]
         public async Task<ActionResult<SmsSurveyPerson>> PostSmsSurveyPerson(SmsSurveyPerson smsSurveyPerson)
         {
+            string guid = Guid.NewGuid().ToString();
+            smsSurveyPerson.Id = guid;
             _context.SmsSurveyPeople.Add(smsSurveyPerson);
             try
             {

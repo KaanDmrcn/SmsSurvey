@@ -104,17 +104,6 @@ namespace test123.Api
             return _context.SmsSurveys.Any(e => e.Id == id);
         }
 
-        [HttpGet("{GetLink}/{id}")]
-        public async Task<ActionResult<SmsSurvey>> GetLink(int id)
-        {
-            var smsSurvey = await _context.SmsSurveys.FindAsync(id);
-
-            if (smsSurvey == null)
-            {
-                return NotFound();
-            }
-            string _link = "www.kaan.com/" + (smsSurvey.Id).ToString();
-            return Ok(_link);
-        }
+       
     }
 }
