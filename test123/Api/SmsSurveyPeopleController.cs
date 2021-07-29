@@ -27,9 +27,9 @@ namespace test123.Api
             return await _context.SmsSurveyPeople.ToListAsync();
         }
 
-        // GET: api/SmsSurveyPeople/5
+        // GET: api/SmsSurveyPeople/8a7b0469-ba07-434b-89a4-e50ef4bb410f
         [HttpGet("{id}")]
-        public async Task<ActionResult<SmsSurveyPerson>> GetSmsSurveyPerson(string id)
+        public async Task<ActionResult<SmsSurveyPerson>> GetSmsSurveyPerson([FromRoute]string id)
         {
             var smsSurveyPerson = await _context.SmsSurveyPeople.FindAsync(id);
 
@@ -137,7 +137,19 @@ namespace test123.Api
         public IActionResult GetSmsSurveyId(int id)
         {            
             var people = _context.SmsSurveyPeople.Where(ww => ww.SmsSurveyId == id).ToList();
+            //var temp = people.Where(ww => ww.Answer == "temp").ToList();
+            
             return Ok(people);
         }
+        //// GET: api/SmsSurveyPeople/GetId/5
+        //[HttpGet("{Getcount}/{id}")]
+        //public IActionResult GetCount(int id)
+        //{
+        //    var people = _context.SmsSurveyPeople.Where(ww => ww.SmsSurveyId == id).ToList();
+        //    var temp = people.Where(ww => ww.Answer == "temp").ToList();
+        //    var count = temp.Count();
+
+        //    return Ok(count);
+        //}
     }
 }
