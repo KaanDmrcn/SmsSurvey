@@ -19,6 +19,7 @@ namespace test123
 {
     public class Startup
     {
+        readonly string allowSpecificOrigins = "_allowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +30,26 @@ namespace test123
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+
+            {
+
+                options.AddPolicy(allowSpecificOrigins,
+
+                builder =>
+
+                {
+
+                    builder.WithOrigins("http://localhost:8084")
+
+                            .AllowAnyHeader()
+
+                            .AllowAnyMethod();
+
+                });
+
+            });
+
             services.AddDbContext<SmsSurveyContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -56,6 +77,10 @@ namespace test123
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+
+            app.UseCors(allowSpecificOrigins);
+
 
             app.UseRouting();
 
